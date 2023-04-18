@@ -16,6 +16,7 @@ public class UserController {
     @Autowired
     private UserService service;
 
+    @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping
     public ResponseEntity<UserDTO> create(@RequestBody  UserDTO dto){
         UserDTO user = service.create(dto);
