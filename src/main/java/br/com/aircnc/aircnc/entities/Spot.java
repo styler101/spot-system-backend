@@ -14,14 +14,14 @@ public class Spot implements Serializable {
     private String company;
     private Double price;
 
-    private String[] techs;
+    private String techs;
 
     private String thumbnail;
     private User user;
 
     public Spot(){}
 
-    public Spot(String id, String company, Double price, String[] techs, String thumbnail, User user){
+    public Spot(String id, String company, Double price, String techs, String thumbnail, User user){
 
     }
 
@@ -49,11 +49,11 @@ public class Spot implements Serializable {
         this.price = price;
     }
 
-    public String[] getTechs() {
+    public String getTechs() {
         return techs;
     }
 
-    public void setTechs(String[] techs) {
+    public void setTechs(String techs) {
         this.techs = techs;
     }
 
@@ -71,5 +71,17 @@ public class Spot implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Spot{" +
+                "id='" + id + '\'' +
+                ", company='" + company + '\'' +
+                ", price=" + price +
+                ", techs='" + techs + '\'' +
+                ", thumbnail='" + thumbnail + '\'' +
+                ", user=" + user +
+                '}';
     }
 }

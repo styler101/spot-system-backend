@@ -9,8 +9,8 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepository extends MongoRepository<User, Long> {
-    @Query("{email: ?0}")
-    public Optional<User> findByEmail(String email);
+    @Query("{ 'email' : email }")
+    public User findByEmail(String email);
 
     @Query("{_id: ?0}")
     public Optional<User> findByMongoId(String id);

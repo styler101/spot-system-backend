@@ -1,9 +1,9 @@
 package br.com.aircnc.aircnc.dtos;
 
-import br.com.aircnc.aircnc.entities.Spot;
 import br.com.aircnc.aircnc.entities.User;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class SpotDTO implements Serializable {
 
@@ -19,7 +19,7 @@ public class SpotDTO implements Serializable {
 
     public SpotDTO(){}
 
-    public SpotDTO(String id, String company, Double price, String thumbnail, String[] techs, User user){
+    public SpotDTO(String id, String company, Double price, String thumbnail,  String[] techs, User user){
         this.id = id;
         this.company = company;
         this.price = price;
@@ -61,11 +61,11 @@ public class SpotDTO implements Serializable {
         this.thumbnail = thumbnail;
     }
 
-    public String[] getTechs() {
+    public  String[] getTechs() {
         return techs;
     }
 
-    public void setTechs(String[] techs) {
+    public void setTechs( String[] techs) {
         this.techs = techs;
     }
 
@@ -75,5 +75,17 @@ public class SpotDTO implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "SpotDTO{" +
+                "id='" + id + '\'' +
+                ", company='" + company + '\'' +
+                ", price=" + price +
+                ", thumbnail='" + thumbnail + '\'' +
+                ", techs=" + Arrays.toString(techs) +
+                ", user=" + user +
+                '}';
     }
 }
