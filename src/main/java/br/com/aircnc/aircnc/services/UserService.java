@@ -18,16 +18,15 @@ public class UserService {
 
     public UserDTO create(UserDTO dto) {
         try {
-            User user = new User();
-            User userAlreadyExists = repository.findByEmail(dto.getEmail());
-            if(userAlreadyExists != null){
-                throw new InvalidParam("This email is already taken");
-            }
-            user.setEmail(dto.getEmail());
-            user = repository.save(user);
-            return new UserDTO(user);
-
-        } catch (IncorrectResultSizeDataAccessException e) {
+         User user = new User();
+         Optional<User> userAlreadyExists = repository.findByEmail(dto.getEmail());
+         if(userAlreadyExists.isEmpty()){
+          throw  new InvalidParam("This email is already taken");
+         }
+         user.setEmail(dto.getEmail());;
+         user = repository.save(user);
+         return new UserDTO(user);
+        }catch (IncorrectResultSizeDataAccessException e) {
             throw new InvalidParam("Invalid Query");
         }
     }
